@@ -1,0 +1,111 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/ionic.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/geturi.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var id = decodeURI(getUrlVars()["id"]);
+            var nama = decodeURI(getUrlVars()["nama"]);
+            var nim = decodeURI(getUrlVars()["nim"]);
+            var email = decodeURI(getUrlVars()["email"]);
+            var progdi = decodeURI(getUrlVars()["progdi"]);
+            $("#id").val(id);
+            $("#nama").val(nama);
+            $("#nim").val(nim);
+            $("#email").val(email);
+            $("#progdi").val(progdi);
+            $("#update").click(function() {
+                var id = $("#id").val();
+                var nama = $("#nama").val();
+                var nim = $("#nim").val();
+                var email = $("#email").val();
+                var progdi = $("#progdi").val();
+                var dataString = "id=" + id + "&nama=" + nama + "&nim=" + nim + "&email=" + email + "&progdi=" + progdi +"&update=";
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost/cordova/MahasiswaApp/www/update.php",
+                    data: dataString,
+                    crossDomain: true,
+                    cache: false,
+                    beforeSend: function() {
+                        $("#update").val('Connecting...');
+                    },
+                    success: function(data) {
+                        if (data == "success") {
+                            alert("Updated");
+                            $("#update").val("Update");
+                        } else if (data == "error") {
+                            alert("error");
+                        }
+                    }
+                });
+
+            });
+            $("#delete").click(function() {
+                var id = $("#id").val();
+                var dataString = "id=" + id + "&delete=";
+                $.ajax({
+                    type: "GET",
+                    url: "http://localhost/cordova/MahasiswaApp/www/delete.php",
+                    data: dataString,
+                    crossDomain: true,
+                    cache: false,
+                    beforeSend: function() {
+                        $("#delete").val('Connecting...');
+                    },
+                    success: function(data) {
+                        if (data == "success") {
+                            alert("Deleted");
+                            $("#delete").val("Delete");
+                        } else if (data == "error") {
+                            alert("error");
+                        }
+                    }
+                });
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px; ">
+        <a href="index.html" class="button button-clear" style="margin-left:40px; ">Home</a>
+        <h1 class="title">Update Database</h1>
+        <a class="button button-clear" href="readjson.html" style="margin-right:40px; ">Read JSON</a>
+    </div><br /><br />
+        <div class="list list-inset">
+            <input type="hidden" id="id" value="" />
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Nama</span>
+              <input type="text" id="nama" placeholder="Nama">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">NIM</span>
+              <input type="text" id="nim" placeholder="NIM">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Email</span>
+              <input type="text" id="email" placeholder="Email">
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Progdi</span>
+              <input type="text" id="progdi" placeholder="Progdi">
+            </label>
+            <div class="item">
+                <button class="button button-balanced" id="update">
+                    Ubah Data
+                  </button>
+                  <button class="button button-assertive" id="delete">
+                    Hapus Data
+                  </button>
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+
+</html>

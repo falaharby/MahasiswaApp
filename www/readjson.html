@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/ionic.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var url = "http://localhost/cordova/MahasiswaApp/www/json.php";
+            $.getJSON(url, function(result) {
+                console.log(result);
+                $.each(result, function(i, field) {
+                    var id = field.id;
+                    var nama = field.nama;
+                    var nim = field.nim;
+                    var email = field.email;
+                    var progdi = field.progdi;
+                    $("#listview").append("<a class='item' href='form.html?id=" + id + "&nama=" + nama + "&nim=" + nim + "&email=" + email + "&progdi=" + progdi +"'><h2>" + nama + " </h2><p>" + nim + "</p><p>" + email + "</p><p>" + progdi + "</p></a>");
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px; ">
+        <a href="index.html" class="button button-clear" style="margin-left:40px;">Home</a>
+        <h1 class="title">Read Database (JSON)</h1>
+    </div><br /><br />
+    <ul class="list list-inset" id="listview">
+    </ul>
+</body>
+
+</html>
