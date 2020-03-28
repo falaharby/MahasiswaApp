@@ -18,7 +18,7 @@
                 if ($.trim(nama).length > 0 & $.trim(nim).length > 0 & $.trim(email).length > 0 & $.trim(progdi).length > 0) {
                     $.ajax({
                         type: "POST",
-                        url: "http://localhost/cordova/MahasiswaApp/www/insert.php",
+                        url: "http://falaharby.000webhostapp.com/MahasiswaApp/www/insert.php",
                         data: dataString,
                         crossDomain: true,
                         cache: false,
@@ -42,12 +42,24 @@
 </head>
 
 <body>
-    <div class="bar bar-header bar-royal" style="margin-bottom:80px; background-color: #bcbef9ff  ">
+    <div class="bar bar-header bar-royal" style="margin-bottom:80px; ">
         <h1 class="title">INPUT DATA MAHASISWA</h1>
+        <a class="button button-clear" href="readjson.html"></a>
     </div><br /><br />
-    
+    <div class="tabs-striped tabs-top tabs-background-royal tabs-color-light">
+        <div class="tabs">
+            <a class="tab-item" href="index.html">
+                HOME
+                </a>
+                <a class="tab-item" href="readjson.html">
+                CEK DATA
+                </a>
+                <a class="tab-item active" href="insert.html">
+                INPUT DATA
+                </a>
+        </div>
+      </div><br><br>
     <div class="list list-inset">
-        <input type="hidden" id="id" value="" />
         <label class="item item-input item-stacked-label">
             <span class="input-label">Nama</span>
           <input type="text" id="nama" placeholder="Nama">
@@ -68,20 +80,6 @@
     <button class="button button-block button-balanced" id="insert">
         Tambah Data Mahasiswa
       </button>
-    <div class="tabs-striped tabs-color-royal">
-    <div class="tabs">
-        <a class="tab-item" href="index.html">
-        HOME
-        </a>
-        <a class="tab-item" href="readjson.html">
-        CEK DATA
-        </a>
-        <a class="tab-item active" href="insert.html">
-        INPUT DATA
-        </a>
-    </div>
-    </div>
-    
 </body>
 
 </html>
