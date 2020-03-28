@@ -1,6 +1,8 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/ionic.css">
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript">
@@ -22,12 +24,24 @@
 </head>
 
 <body>
-    <div class="bar bar-header bar-positive" style="margin-bottom:80px; ">
-        <a href="index.html" class="button button-clear" style="margin-left:40px;">Home</a>
-        <h1 class="title">Read Database (JSON)</h1>
+    <div class="bar bar-header" style="margin-bottom:80px; background-color: #bcbef9ff  ">
+        <h1 class="title">CEK DATA MAHASISWA</h1>
     </div><br /><br />
     <ul class="list list-inset" id="listview">
     </ul>
+    <div class="tabs-striped tabs-color-royal">
+        <div class="tabs">
+            <a class="tab-item" href="index.html">
+            HOME
+            </a>
+            <a class="tab-item active" href="readjson.html">
+            CEK DATA
+            </a>
+            <a class="tab-item " href="insert.html">
+            INPUT DATA
+            </a>
+        </div>
+        </div>
 </body>
 
 </html>
