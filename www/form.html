@@ -25,7 +25,7 @@
                 var dataString = "id=" + id + "&nama=" + nama + "&nim=" + nim + "&email=" + email + "&progdi=" + progdi +"&update=";
                 $.ajax({
                     type: "POST",
-                    url: "http://falaharby.000webhostapp.com/MahasiswaApp/www.php",
+                    url: "http://falaharby.000webhostapp.com/MahasiswaApp/www/update.php",
                     data: dataString,
                     crossDomain: true,
                     cache: false,
@@ -48,7 +48,7 @@
                 var dataString = "id=" + id + "&delete=";
                 $.ajax({
                     type: "GET",
-                    url: "http://falaharby.000webhostapp.com/MahasiswaApp/wwwdelete.php",
+                    url: "http://falaharby.000webhostapp.com/MahasiswaApp/www/delete.php",
                     data: dataString,
                     crossDomain: true,
                     cache: false,
